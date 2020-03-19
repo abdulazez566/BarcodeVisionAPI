@@ -185,18 +185,23 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
                                     /*        Picasso.with(ScannedBarcodeActivity.this)  //Here, this is context.
                                                     .load("https://scontent-mrs2-2.xx.fbcdn.net/v/t1.0-9/p960x960/45496751_2757766011115690_1480048500455505920_o.jpg?_nc_cat=107&_nc_sid=85a577&_nc_ohc=LNXrbzPbkD4AX-Ohie9&_nc_ht=scontent-mrs2-2.xx&_nc_tp=6&oh=d79dafe2a1267efbce6bf998b3eaa818&oe=5E8E621F")  //Url of the image to load.
                                                     .into(myimage);*/
-                                            mProgressDialog.setMessage("Loading....");
+                                    /*        mProgressDialog.setMessage("Loading....");
                                             new Handler().postDelayed(new Runnable(){
                                                 @Override
                                                 public void run() {
                                                     mProgressDialog.show();
                                                 }
-                                            },100);
+                                            },1);*/
                                             Picasso.with(ScannedBarcodeActivity.this)  //Here, this is context.
                                                     .load("http://h2817272.stratoserver.net/FmfiPs/Portals/0/Fmfi_Files/UserImage/"+intentData+".PNG")  //Url of the image to load
+                                                    .fit()
+                                                    .centerCrop()
+                                                    .placeholder( R.drawable.loader)
                                                     .into(myimage);
 //                                            Toast.makeText(ScannedBarcodeActivity.this, "http://h2817272.stratoserver.net/FmfiPs/Portals/0/Fmfi_Files/UserImage/"+intentData+".PNG", Toast.LENGTH_LONG).show();
+/*
                                             mProgressDialog.dismiss();
+*/
 
                                         } catch (Exception exc) {
                                             Toast.makeText(ScannedBarcodeActivity.this, "Error in image URL", Toast.LENGTH_LONG).show();
