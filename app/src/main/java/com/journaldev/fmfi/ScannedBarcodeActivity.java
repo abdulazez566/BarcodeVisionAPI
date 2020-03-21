@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.journaldev.fmfi.setting.Global;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
@@ -193,11 +194,11 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
                                                 }
                                             },1);*/
                                             Picasso.with(ScannedBarcodeActivity.this)  //Here, this is context.
-                                                    .load("http://h2817272.stratoserver.net/FmfiPs/Portals/0/Fmfi_Files/UserImage/"+intentData+".PNG")  //Url of the image to load
+                                                    .load(Global.ImageUrl +intentData+".PNG")  //Url of the image to load
                                                     .networkPolicy(NetworkPolicy.NO_CACHE)
                                                     .memoryPolicy(MemoryPolicy.NO_CACHE)
-                                                    .fit()
-                                                    .centerCrop()
+                                                    .fit().centerInside()
+                                                    .rotate(90)
                                                     .placeholder( R.drawable.loader)
                                                     .into(myimage);
 //                                            Toast.makeText(ScannedBarcodeActivity.this, "http://h2817272.stratoserver.net/FmfiPs/Portals/0/Fmfi_Files/UserImage/"+intentData+".PNG", Toast.LENGTH_LONG).show();
