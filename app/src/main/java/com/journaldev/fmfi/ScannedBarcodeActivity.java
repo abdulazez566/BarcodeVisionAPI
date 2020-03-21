@@ -45,7 +45,7 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
     boolean alreadyloaded= false;
     boolean isEmail = false;
     public ProgressDialog mProgressDialog;
-
+//    com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView myimage_zoom;
     private ScaleGestureDetector mScaleGestureDetector;
     private float mScaleFactor = 1.0f;
     ImageView myimage;
@@ -54,6 +54,8 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_barcode);
         myimage = findViewById(R.id.myimage);
+//        myimage_zoom=findViewById(R.id.myimage_zoom);
+
         initViews();
         mProgressDialog = new ProgressDialog(this,R.style.AppCompatAlertDialogStyle);
         mProgressDialog.setCancelable(false);
@@ -88,6 +90,7 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
                 if (alreadyloaded)
                 {
                     myimage.setVisibility(View.GONE);
+//                    myimage_zoom.setVisibility(View.GONE);
                     surfaceView.setVisibility(View.VISIBLE);
                     alreadyloaded =false;
                 }
@@ -179,6 +182,7 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
                                     if (!intentData.equals(null)) {
                                         try {
                                             myimage.setVisibility(View.VISIBLE);
+//                                            myimage_zoom.setVisibility(View.VISIBLE);
                                             surfaceView.setVisibility(View.GONE);
                                             btnAction.setText("Scan Another Code");
                                             btnAction.setVisibility(View.VISIBLE);
@@ -201,6 +205,7 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
                                                     .rotate(90)
                                                     .placeholder( R.drawable.loader)
                                                     .into(myimage);
+
 //                                            Toast.makeText(ScannedBarcodeActivity.this, "http://h2817272.stratoserver.net/FmfiPs/Portals/0/Fmfi_Files/UserImage/"+intentData+".PNG", Toast.LENGTH_LONG).show();
 /*
                                             mProgressDialog.dismiss();
